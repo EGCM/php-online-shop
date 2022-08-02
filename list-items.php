@@ -19,6 +19,15 @@ require_once 'php/init.php';
         <a class="navbar-brand" href="#">Online shop</a>
     </nav>
     <div class="container mt-5">
+        <?php deleteItem(); ?>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="/online-shop/list-items.php">Item list</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/online-shop/add-item.php">Add item</a>
+            </li>
+        </ul>
         <?php
         $view = new View();
         $view->listData();

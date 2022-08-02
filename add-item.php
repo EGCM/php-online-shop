@@ -19,7 +19,15 @@ require_once 'php/init.php';
       <a class="navbar-brand" href="#">Online shop</a>
     </nav>
     <div class="container mt-5">
-      <h3 class='mb-4'>Items</h3>"
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="/online-shop/list-items.php">Item list</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/online-shop/add-item.php">Add item</a>
+            </li>
+        </ul>
+      <h3 class='mb-4'>Add Item</h3>
       <?php insertItem() ?>
       <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
         <div class="form-group">

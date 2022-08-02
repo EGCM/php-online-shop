@@ -52,4 +52,25 @@ function updateItem(){
     }
 }
 
+function deleteItem(){
+    if (!empty($_GET['delete'])) {
+        $delete = new Delete($_GET['delete']);
+        if ($delete->deleteItem()) {
+          echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    You have deleted and item successfully.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>';
+        } else {
+            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Delete item error.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>';
+        }
+    }
+}
+
 ?>

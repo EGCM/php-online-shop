@@ -2,7 +2,7 @@
 require_once 'php/init.php';
 
 $view = new View();
-$data = $view->getData();
+$data = $view->getData($_GET['id']);
 ?>
 
 <!doctype html>
@@ -22,6 +22,14 @@ $data = $view->getData();
         <a class="navbar-brand" href="#">Online shop</a>
     </nav>
     <div class="container mt-5">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="/online-shop/list-items.php">Item list</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/online-shop/add-item.php">Add item</a>
+        </li>
+    </ul>
     <?php updateItem() ?>
     <h3 class='mb-4'>Items</h3>
       <form action="<?php echo $_SERVER['REQUEST_URI']?>" method="POST">
