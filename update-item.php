@@ -1,5 +1,8 @@
 <?php 
 require_once 'php/init.php';
+
+$view = new View();
+$data = $view->getData();
 ?>
 
 <!doctype html>
@@ -16,21 +19,21 @@ require_once 'php/init.php';
   </head>
   <body>
     <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Online shop</a>
+        <a class="navbar-brand" href="#">Online shop</a>
     </nav>
     <div class="container mt-5">
-      <h3 class='mb-4'>Items</h3>"
-      <?php insertItem() ?>
-      <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+    <?php updateItem() ?>
+    <h3 class='mb-4'>Items</h3>
+      <form action="<?php echo $_SERVER['REQUEST_URI']?>" method="POST">
         <div class="form-group">
           <label for="name">Item name</label>
-          <input class="form-control" type="text" name="name" id="" placeholder="Item name" required>
+          <input class="form-control" type="text" name="name" id="" placeholder="Item name" value="<?php echo $data[0]['name'] ?>" required>
         </div>
         <div class="form-group">
           <label for="price">Item price</label>
-          <input class="form-control" type="number" name="price" id="" placeholder="Price" required>
+          <input class="form-control" type="number" name="price" id="" value="<?php echo $data[0]['price'] ?>" required>
         </div>
-        <button class="btn btn-primary" type="submit">Add item</button>
+        <button class="btn btn-primary" type="submit">Update Item</button>
       </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
